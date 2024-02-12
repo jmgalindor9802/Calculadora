@@ -1,9 +1,13 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main extends basicCalculator {
+
+    public Main(Scanner scanner) {
+        super(scanner);
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Calculadora calculadora = new Calculadora(scanner);
+        Main calculadora = new Main(scanner);
 
         double numeroAnterior = 0;
         double numeroActual = 0;
@@ -16,41 +20,41 @@ public class Main {
 
         do {
             try {
-                // Pedir el operador
-                System.out.print("Ingrese un operador (+, -, *, /), 'c' para reiniciar o un valor no numérico para salir: ");
+                // pedir el operador
+                System.out.print("Ingrese un operador (+, -, *, /,%,^), 'c' para reiniciar:");
                 String operadorInicial = scanner.next();
 
                 if (operadorInicial.equalsIgnoreCase("c")) {
-                    // Reiniciar los números
+                    // reiniciar los números
                     System.out.println("Reiniciando números.");
-                    // Pedir el primer número
+                    // pedir el primer número
                     System.out.print("Ingrese el primer número: ");
                     numeroAnterior = scanner.nextDouble();
                 } else if (esOperadorValido(operadorInicial)) {
-                    // Pedir el segundo número
-                    System.out.print("Ingrese el segundo número: ");
-                    numeroActual = scanner.nextDouble();
-
-                    // Realizar la operación
+                    // pedir el segundo número
+                    if (esOperadorValido("s")||(esOperadorValido("^"))){
+                        numeroActual = 0;
+                    }else{
+                        System.out.print("Ingrese el segundo número: ");
+                        numeroActual = scanner.nextDouble();
+                    }
+                    // realizar la operación
                     double resultado = calculadora.realizarOperacion(numeroAnterior, operadorInicial, numeroActual);
-                    System.out.println("El resultado de la operación es: " + resultado);
+                    System.out.println("El resultado es: " + resultado);
                     numeroAnterior = resultado;
                 } else {
-                    System.out.println("Por favor, ingrese un operador válido (+, -, *, /) o 'c' para reiniciar.");
+                    System.out.println("Por favor, ingrese un operador válido (+, -, *, /,%,^) o 'c' para reiniciar.");
                 }
-            } catch (java.util.InputMismatchException | NumberFormatException e) {
-                // Si se ingresa un valor no numérico, salir del bucle
-                System.out.println("Programa terminado.");
-                salir = true;
+            }catch (ArithmeticException e) {
+                // Manejar excepción específica relacionada con la división por cero
+                System.out.println("Error de división por cero: " + e.getMessage());
             }
+
         } while (!salir);
-
-        // Cerrar el scanner
-        scanner.close();
     }
-
+// funcion para validar el operador
     private static boolean esOperadorValido(String entrada) {
         char primerCaracter = entrada.charAt(0);
-        return (primerCaracter == '+' || primerCaracter == '-' || primerCaracter == '*' || primerCaracter == '/');
+        return (primerCaracter == '+' || primerCaracter == '-' || primerCaracter == '*' || primerCaracter == '/'  || primerCaracter == '%'|| primerCaracter == '^'|| primerCaracter == 's');
     }
 }
