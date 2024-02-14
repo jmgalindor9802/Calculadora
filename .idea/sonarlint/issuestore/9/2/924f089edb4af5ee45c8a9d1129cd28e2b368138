@@ -1,11 +1,40 @@
 
+~
+java:S1192."\Define a constant instead of duplicating this literal "Ingrese el primer nÃºmero: " 4 times.(ÒÏÆßøÿÿÿÿ8ùö¨Ú1
+o
+java:S1192A"RDefine a constant instead of duplicating this literal "El resultado es: " 3 times.(İîº8ùö¨Ú1
+h
+java:S1301*"KReplace this "switch" statement by "if" statements to increase readability.(°€àâ8ùö¨Ú1
 7
-java:S1220""Move this file to a named package.8ÃúÏÓÙ1
-L	java:S106"+Replace this use of System.out by a logger.(ÒÏÆßøÿÿÿÿ8ª–ÕÙ1
-G	java:S106"+Replace this use of System.out by a logger.(«”Æ8ª–ÕÙ1
-L	java:S106"+Replace this use of System.out by a logger.(¤–­ùÿÿÿÿ8ª–ÕÙ1
-L	java:S106"+Replace this use of System.out by a logger.(ÒÏÆßøÿÿÿÿ8ª–ÕÙ1
-L	java:S106"+Replace this use of System.out by a logger.(¤Í½Öøÿÿÿÿ8ª–ÕÙ1
-G	java:S106$"+Replace this use of System.out by a logger.(§²ó¥8ª–ÕÙ1
-F	java:S106'"+Replace this use of System.out by a logger.(òç8ª–ÕÙ1
-G	java:S106+"+Replace this use of System.out by a logger.(øÌˆ»8‘ª–ÕÙ1
+java:S1220""Move this file to a named package.8úö¨Ú1
+L	java:S106"+Replace this use of System.out by a logger.(èÅ‚ûÿÿÿÿ8ò‚ö¨Ú1
+G	java:S106"+Replace this use of System.out by a logger.(âşŠ™8ò‚ö¨Ú1
+G	java:S106"+Replace this use of System.out by a logger.(Í˜€8ò‚ö¨Ú1
+L	java:S106"+Replace this use of System.out by a logger.(õ®†üÿÿÿÿ8ò‚ö¨Ú1
+L	java:S106"+Replace this use of System.out by a logger.(Óâ•ÿÿÿÿÿ8ó‚ö¨Ú1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(Çµí‘8ó‚ö¨Ú1
+d
+java:S1854_"BRemove this useless assignment to local variable "numeroAnterior".(˜à©Àşÿÿÿÿ8ô‚ö¨Ú1
+d
+java:S1854h"BRemove this useless assignment to local variable "numeroAnterior".(…Ï›«ıÿÿÿÿ8ô‚ö¨Ú1
+>	java:S131*""Add a default case to this switch.(°€àâ8ø‚ö¨Ú1
+L	java:S106,"+Replace this use of System.out by a logger.(ÙİÒéøÿÿÿÿ8ù‚ö¨Ú1
+L	java:S106."+Replace this use of System.out by a logger.(ÒÏÆßøÿÿÿÿ8ù‚ö¨Ú1
+L	java:S1062"+Replace this use of System.out by a logger.(·àèôüÿÿÿÿ8ù‚ö¨Ú1
+L	java:S1067"+Replace this use of System.out by a logger.(¤–­ùÿÿÿÿ8ù‚ö¨Ú1
+L	java:S1069"+Replace this use of System.out by a logger.(ÒÏÆßøÿÿÿÿ8ú‚ö¨Ú1
+G	java:S106A"+Replace this use of System.out by a logger.(İîº8ú‚ö¨Ú1
+L	java:S106D"+Replace this use of System.out by a logger.(¤Í½Öøÿÿÿÿ8û‚ö¨Ú1
+G	java:S106H"+Replace this use of System.out by a logger.(İîº8û‚ö¨Ú1
+L	java:S106L"+Replace this use of System.out by a logger.(Öî‚şÿÿÿÿ8û‚ö¨Ú1
+L	java:S106S"+Replace this use of System.out by a logger.(¡ÑÓúÿÿÿÿ8û‚ö¨Ú1
+L	java:S106X"+Replace this use of System.out by a logger.(Ò¨¤úÿÿÿÿ8ü‚ö¨Ú1
+L	java:S106\"+Replace this use of System.out by a logger.(¤–­ùÿÿÿÿ8ü‚ö¨Ú1
+L	java:S106^"+Replace this use of System.out by a logger.(ÒÏÆßøÿÿÿÿ8ü‚ö¨Ú1
+L	java:S106d"+Replace this use of System.out by a logger.(ÒÏÆßøÿÿÿÿ8ı‚ö¨Ú1
+G	java:S106g"+Replace this use of System.out by a logger.(İîº8ı‚ö¨Ú1
+L	java:S106k"+Replace this use of System.out by a logger.(Öî‚şÿÿÿÿ8ı‚ö¨Ú1
+L	java:S106s"+Replace this use of System.out by a logger.(¡€î°ÿÿÿÿÿ8ş‚ö¨Ú1
+ã
+java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 71 to 64, Complexity from 16 to 14, Nesting Level from 6 to 2, Number of Variables from 15 to 6.(Çµí‘8ş‚ö¨Ú1

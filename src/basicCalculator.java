@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class basicCalculator implements basicOperations{
+public class basicCalculator implements basicOperations, scientificOperations{
 
 
     public basicCalculator(Scanner scanner) {
@@ -33,21 +33,33 @@ public class basicCalculator implements basicOperations{
     }
     @Override
     public double raizsqr(double b) {
-        return Math.pow(b,2);
+        return Math.sqrt(b);
     }
-    private double porcentaje(double a, double b) {
+    @Override
+    public double porcentaje(double a, double b) {
         return a * b/100;
     }
-
-    private double potencia(double a, double b) {
-        return Math.pow(a,b);
+    @Override
+    public double potencia2(double a) {
+        return Math.pow(a,2);
     }
 
 
-    public double realizarOperacion ( double a, String operador){
-            return realizarOperacion(a, operador, 0);
+
+    public double realizarBasicOperacion(double a, String operador){
+        char primerCaracter = operador.charAt(0);
+        // Realizar la operación correspondiente
+        switch (primerCaracter) {
+            case '^':
+                return potencia2(a);
+            case 'q':
+                return raizsqr(a);
+            default:
+                //excepcion de que se ha dado un argumento no valido
+                throw new IllegalArgumentException("Operador no válido");
         }
-        public double realizarOperacion ( double a, String operador,double b){
+        }
+        public double realizarBasicOperacion(double a, String operador, double b){
             char primerCaracter = operador.charAt(0);
 
             // Realizar la operación correspondiente
@@ -62,19 +74,54 @@ public class basicCalculator implements basicOperations{
                     return dividir(a, b);
                 case '%':
                     return porcentaje(a, b);
-                case '^':
-                    return potencia(a, b);
-                case 's':
-                    return raizsqr(a);
                 default:
                     //excepcion de que se ha dado un argumento no valido
                     throw new IllegalArgumentException("Operador no válido");
             }
         }
 
+    public double realizarScientificOperacion(double a, String operador){
+        char primerCaracter = operador.charAt(0);
+        // Realizar la operación correspondiente
+        switch (primerCaracter) {
+            case 's':
+                return senr(a);
+            case 'c':
+                return cosr(a);
+            case 't':
+                return tanr(a);
+            default:
+                //excepcion de que se ha dado un argumento no valido
+                throw new IllegalArgumentException("Operador no válido");
+        }
+    }
+    @Override
+    public double senr(double a) {
+        return Math.sin(a);
+    }
 
+    @Override
+    public double cosr(double a) {
+        return Math.cos(a);
+    }
 
+    @Override
+    public double tanr(double a) {
+        return Math.tan(a);
+    }
 
+    @Override
+    public double seng(double a) {
+        return 0;
+    }
 
+    @Override
+    public double cosg(double a) {
+        return 0;
+    }
 
+    @Override
+    public double tang(double a) {
+        return 0;
+    }
 }
