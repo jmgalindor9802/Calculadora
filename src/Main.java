@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main extends basicCalculator {
-
+    Scanner scanner = new Scanner(System.in);
     public Main(Scanner scanner) {
         super(scanner);
     }
@@ -13,6 +13,12 @@ public class Main extends basicCalculator {
     private static boolean esOperadorCientificoValido(String entrada){
         char primerCaracter = entrada.charAt(0);
         return (primerCaracter == 's' || primerCaracter == 'c' || primerCaracter == 't' );
+    }
+    private  void reiniciarCalculadora(){
+        System.out.println("Reiniciando números.");
+        // pedir el primer número
+        System.out.print("Ingrese el primer número: ");
+        double numeroAnterior = scanner.nextDouble();
     }
 
     private static void mostrarMenu() {
@@ -42,22 +48,22 @@ public class Main extends basicCalculator {
                 switch (opcion) {
                     case 1:
                         System.out.println("*****CALCULADORA BÁSICA*****");
-                        // Pedir el primer número
-                        System.out.print("Ingrese el primer número: ");
-                        numeroAnterior = scanner.nextDouble();
+                        if (numeroAnterior==0) {
+                            // Pedir el primer número
+                            System.out.print("Ingrese el primer número: ");
+                            numeroAnterior = scanner.nextDouble();
+                        }else{
+                            numeroAnterior=numeroAnterior;
+                        }
                         do {
                             // pedir el operador
                             System.out.print("Ingrese un operador (+, -, *, /,%,(^)Potencia cuadrada ,(q)Raiz cuadrada)), 'c' para reiniciar, 'e' para volver al menu:");
                             String operadorInicial = scanner.next();
 
                             if (operadorInicial.equalsIgnoreCase("c")) {
-                                // reiniciar los números
-                                System.out.println("Reiniciando números.");
-                                // pedir el primer número
-                                System.out.print("Ingrese el primer número: ");
-                                numeroAnterior = scanner.nextDouble();
-                            }else if (operadorInicial.equalsIgnoreCase("e")) {
-                               salir1=true;
+                                reiniciarCalculadora();
+                            } else if (operadorInicial.equalsIgnoreCase("e")) {
+                                salir1 = true;
                             } else if (esOperadorBasicoValido(operadorInicial)) {
                                 // pedir el segundo número
                                 if (operadorInicial.equalsIgnoreCase("q") || operadorInicial.equalsIgnoreCase("^")) {
@@ -72,11 +78,11 @@ public class Main extends basicCalculator {
                                     System.out.println("El resultado es: " + resultado);
                                     numeroAnterior = resultado;
                                 }
-                            }else {
-                                    System.out.println("Por favor, ingrese un operador válido (+, -, *, /,%,^) o 'c' para reiniciar.");
-                                }
+                            } else {
+                                System.out.println("Por favor, ingrese un operador válido (+, -, *, /,%,^) o 'c' para reiniciar.");
+                            }
 
-                        }while (!salir1);
+                        } while (!salir1);
                         break;
 
                     case 2:
@@ -85,35 +91,40 @@ public class Main extends basicCalculator {
 
                         do {
                             // pedir el operador
-                            System.out.print("Ingrese un operador [s]Seno,[c]Coseno, [t]Tangente, 'c' para reiniciar, 'e' volver al menu:");
+                            System.out.print("Ingrese un operador [s]Seno,[c]Coseno,[t]Tangente,'e' volver al menu:");
                             String operadorInicial = scanner.next();
-                        if (operadorInicial.equalsIgnoreCase("c")) {
-                            // reiniciar los números
-                            System.out.println("Reiniciando números.");
-                            // pedir el primer número
-                            System.out.print("Ingrese el primer número: ");
-                            numeroAnterior = scanner.nextDouble();
-                        }else if (operadorInicial.equalsIgnoreCase("e")) {
-                            salir3=true;
-                        } else if (esOperadorCientificoValido(operadorInicial)) {
-                            // pedir el  número
-                            System.out.print("Ingrese el primer número: ");
-                            numeroAnterior = scanner.nextDouble();
+                            if (operadorInicial.equalsIgnoreCase("c")) {
+                                // reiniciar los números
+                                System.out.println("Reiniciando números.");
+                                // pedir el primer número
+                                System.out.print("Ingrese el primer número: ");
+                                numeroAnterior = scanner.nextDouble();
+                            } else if (operadorInicial.equalsIgnoreCase("e")) {
+                                salir3 = true;
+                            } else if (esOperadorCientificoValido(operadorInicial)) {
+                                // pedir el  número
+                                System.out.print("Ingrese el primer número: ");
+                                numeroAnterior = scanner.nextDouble();
                                 double resultado = calculadora.realizarScientificOperacion(numeroAnterior, operadorInicial);
                                 System.out.println("El resultado es: " + resultado);
                                 numeroAnterior = resultado;
 
-                        }else {
-                            System.out.println("Por favor, ingrese un operador válido (+, -, *, /,%,^) o 'c' para reiniciar.");
-                        }
+                            } else {
+                                System.out.println("Por favor, ingrese un operador válido (+, -, *, /,%,^) o 'c' para reiniciar.");
+                            }
 
-                }while (!salir3);
-                break;
-                    }
+
+                        } while (!salir3);
+                        break;
+
+                    case 3:
+                        salir2 = true;
+                }
                 } catch(ArithmeticException e){
                     // Manejar excepción específica relacionada con la división por cero
                     System.out.println("Error de división por cero: " + e.getMessage());
                 }
+
 
             } while (!salir2) ;
 
